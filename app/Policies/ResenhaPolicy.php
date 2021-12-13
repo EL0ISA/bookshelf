@@ -22,7 +22,7 @@ class ResenhaPolicy
     }
     public function mostrar(User $user, Resenha $resenha)
     {
-        return $user->id === $resenha->user_id
+        return $user->id == $resenha->user_id
             ? Response::allow()
             : Response::deny('Não autorizado');
     }

@@ -49,8 +49,12 @@ class ResenhaController extends Controller
     }
     public function edit(Request $request, Resenha $resenha)
     {
-        Gate::authorize('mostrar-resenha', $resenha);
-        return view('resenhas.edit', ['resenha'=>$resenha]);
+        $response = Gate::inspect('mostrar-resenha', $resenha);
+        if($response->allowed()){
+            return view('resenhas.edit', ['resenha'=>$resenha]);
+        }else{
+            return redirect()->to(route('resenhas.index'));
+        }
     }
     public function update(Request $request, Resenha $resenha)
     {
