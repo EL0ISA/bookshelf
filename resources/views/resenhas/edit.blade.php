@@ -17,18 +17,26 @@
                         @method('PUT')
                         <div class="form-group row">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" placeholder="Titulo do Livro" name="livro" value="{{$resenha->livro}}">
+                                <input type="text" class="form-control form-control-user" placeholder="Titulo do Livro" name="livro" value="{{old('livro', $resenha->livro)}}">
+                                @error('livro')
+                                <span>{{$errors->first('livro')}}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" placeholder="Nota" name="nota" value="{{$resenha->nota}}">
+                                <input type="text" class="form-control form-control-user" placeholder="Nota" name="nota" value="{{old('nota', $resenha->nota)}}">
+                                @error('nota')
+                                <span>{{$errors->first('nota')}}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user"
-                                    id="exampleInputFormação" placeholder="Resenha" name="resenhafinal" value="{{$resenha->resenhafinal}}">
+                                <input type="text" class="form-control form-control-user" id="exampleInputFormação" placeholder="Resenha" name="resenhafinal" value="{{old('resenhafinal', $resenha->resenhafinal)}}">
+                                    @error('resenhafinal')
+                                    <span>{{$errors->first('resenhafinal')}}</span>
+                                    @enderror
                             </div>
                         </div>
                         <hr>

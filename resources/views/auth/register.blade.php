@@ -12,13 +12,13 @@
 <form class="user" action="{{url('/register')}}" method="POST">
     @csrf
     <div class="form-group">
-            <input type="text" class="form-control form-control-user" name="name" placeholder="Digite seu nome">
+            <input type="text" class="form-control form-control-user" name="name" placeholder="Digite seu nome" value="{{old('name')}}">
             @error('name')
                 <span>{{$message}}</span>
             @enderror
     </div>
     <div class="form-group">
-        <input type="email" class="form-control form-control-user" name="email" placeholder="Digite seu email">
+        <input type="email" class="form-control form-control-user" name="email" placeholder="Digite seu email" value="{{old('email')}}">
             @error('email')
                 <span>{{$message}}</span>
             @enderror
@@ -35,7 +35,7 @@
                 @error('password_confirmation')
                 <span>{{$message}}</span>
                 @enderror
-            </div>
+        </div>
     </div>
     <button class="btn btn-user btn-block" style="background-color:#BF7463; color:white">
         Criar Conta

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ResenhaRequest;
 
 use App\Models\Resenha;
 
@@ -26,7 +27,7 @@ class ResenhaController extends Controller
     {
         return view('resenhas.create');
     }
-    public function store(Request $request)
+    public function store(ResenhaRequest $request)
     {
         $resenha = new Resenha;
         $resenha->livro= $request->post('livro');
@@ -56,7 +57,7 @@ class ResenhaController extends Controller
             return redirect()->to(route('resenhas.index'));
         }
     }
-    public function update(Request $request, Resenha $resenha)
+    public function update(ResenhaRequest $request, Resenha $resenha)
     {
         Gate::authorize('mostrar-resenha', $resenha);
 

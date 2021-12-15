@@ -16,18 +16,23 @@
                         @method('PUT')
                         <div class="form-group row">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" placeholder="Titulo do Livro" name="name" value="{{$user->name}}">
+                                <input type="text" class="form-control form-control-user" placeholder="Nome" name="name" value="{{old('name', $user->name)}}">
+                                @error('name')
+                                <span>{{$errors->first('name')}}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <input type="text" class="form-control form-control-user" placeholder="Nota" name="email" value="{{$user->email}}">
+                                <input type="text" class="form-control form-control-user" placeholder="Email" name="email" value="{{old('email', $user->email)}}">
+                                @error('email')
+                                <span>{{$errors->first('email')}}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <input type="date" class="form-control form-control-user"
-                                    id="exampleInputFormação" placeholder="Resenha" name="aniversario" value="{{$user->aniversario}}">
+                                <input type="date" class="form-control form-control-user" id="exampleInputFormação" placeholder="Resenha" name="aniversario" value="{{$user->aniversario}}">
                             </div>
                         </div>
                         <hr>
